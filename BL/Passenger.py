@@ -15,6 +15,7 @@ class Passenger:
     child = 0
     infant = 0
     totalSeats = 0
+    tripType = ""
     pClass = ""
 
     def __init__(self, id):

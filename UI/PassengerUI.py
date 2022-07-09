@@ -1,4 +1,6 @@
 from BL.Passenger import Passenger
+from DL.FlightDL import FlightDL
+from DL.PassengerDL import PassengerDL
 
 
 class PassengerUI:
@@ -50,7 +52,7 @@ class PassengerUI:
         print("---------------------")
         p.departCity = input("Departure from :- ")
         p.arrCity = input("Arrival To :- ")
-        p.trip = input("Trip Type :- ")
+        p.tripType = input("Trip Type :- ")
         p.departDate = input("Depart Date :-")
         print("---------Passengers----------")
         # Validation on number of seats
@@ -83,3 +85,16 @@ class PassengerUI:
         print("---------Class---------")
         p.pClass = input("Enter Class :- ")
         p.totalSeats = adult + child+infant
+
+    @staticmethod
+    def bookP(p):
+        print("Main Menu  >   Login    >   Passenger    >   Book from available Flights")
+        print("---------------------")
+        for i in (FlightDL.flightsList):
+            if (i.checkFlight(p.arrCity, p.departCity, p.tripType,  p.departDate)):
+                print(
+                    f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
+            else:
+                print("No flights available!!")
+        option = int(input("Enter your option"))
+        return option

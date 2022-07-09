@@ -23,3 +23,8 @@ class Flight:
             self.arrCity = args[1]
             self.tripType = args[2]
             self.departDate = args[3]
+
+    def checkFlight(self, arrCity, departCity, tripType, departDate):
+        if self.arrCity == arrCity and self.departCity == departCity and self.tripType == tripType and self.departDate == departDate:
+            return True
+        return False
