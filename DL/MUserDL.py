@@ -9,19 +9,21 @@ class MUserDL:
 
     @staticmethod
     def addUserInList(user):
+        # print(user.userName)
+        # sleep(10)
         MUserDL.userList.append(user)
 
     @staticmethod
     def signIn(user):
         for storedUser in MUserDL.userList:
-
-           # print(user.userName)
-           # print(storedUser.userName)
-           # sleep(10)
+            # print(user.userName)
+            # print(storedUser.userName)
+            # sleep(10)
             if(storedUser.userName == user.userName and storedUser.userPassword == user.userPassword):
+                # print("F")
+                # sleep(10)
                 return storedUser
-            else:
-                return None
+        return None
 
     @staticmethod
     def parseData(line):
@@ -37,8 +39,9 @@ class MUserDL:
             for line in records:
                 userName, userPassword, userRole = MUserDL.parseData(line)
                 user = MUser(userName, userPassword, userRole)
-                print(user.userName, userPassword)
-                sleep(10)
+                #print(user.userName, userPassword)
+                # if userRole == "user":
+                #     PassengerDL.addPassengerIntoList(user)
                 MUserDL.addUserInList(user)
 
             return True

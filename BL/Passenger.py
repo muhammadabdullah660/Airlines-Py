@@ -11,6 +11,11 @@ class Passenger:
     flight = []
     id = MUser()
     total = 0.0
+    adult = 0
+    child = 0
+    infant = 0
+    totalSeats = 0
+    pClass = ""
 
     def __init__(self, id):
         self.id = id
@@ -18,9 +23,9 @@ class Passenger:
     def cancelBookedFlight(self, myFlight):
         self.flight.remove(myFlight)
 
-    def calculatePrice(self, item,  myFlight,  Adult,  Child,  Infant):
-        x = ((Adult * item.Price) + (Child * (item.Price)) /
-             2 + (Infant * (item.Price) / 4))
+    def calculatePrice(self, item,  myFlight):
+        x = ((self.adult * item.Price) + (self.child * (item.Price)) /
+             2 + (self.infant * (item.Price) / 4))
         x += myFlight.Seats * self.checkClass(myFlight)
         return x
 

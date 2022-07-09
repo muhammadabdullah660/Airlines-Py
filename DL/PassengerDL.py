@@ -4,8 +4,6 @@ from BL.MUser import MUser
 from BL.Passenger import Passenger
 from time import sleep
 
-from DL.MUserDL import MUserDL
-
 
 class PassengerDL:
     passengersList = []
@@ -26,7 +24,11 @@ class PassengerDL:
     @staticmethod
     def isValidPassenger(userX):
         for item in PassengerDL.passengersList:
-            if userX.UserName == item.UserName and userX.UserPassword == item.UserPassword:
+            # print("F")
+            # sleep(5)
+            if userX.userName == item.id.userName and userX.userPassword == item.id.userPassword:
+                # print("f")
+                # sleep(5)
                 return item
         return None
 

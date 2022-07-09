@@ -28,5 +28,5 @@ class MUserUI:
     def TakeInputWithOutRole():
         userName = input("Enter Your Name:")
         userPassword = input("Enter Your Password:")
-        user = MUser(userName, userPassword, None)
+        user = MUser(userName, userPassword)
         return user
