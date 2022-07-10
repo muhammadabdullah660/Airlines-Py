@@ -42,3 +42,10 @@ class Passenger:
 
     def bookFlight(self, myFlight):
         self.flight.append(myFlight)
+
+    def viewBookedFlights(self):
+        self.total = 0.0
+        for pa in self.flight:
+            print(
+                f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
+            self.total += pa.price

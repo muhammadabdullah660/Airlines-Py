@@ -113,18 +113,13 @@ class PassengerUI:
         print(f"No of Passengers (Child) (450$)")
         print(f"No of Passengers (Infant)(0$)  ")
         print("Departure\tArrival\tTrip\tDate\tTime\tClass\tPrice\tSeats")
-        for pa in p.flight:
-            print(
-                f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
-            p.total += pa.price
+        p.viewBookedFlights()
         print(f"Your Total Expenditure :-  {p.total}$")
 
     @staticmethod
     def seeBookedFlights(p):
         print("Departure\tArrival\tTrip\tDate\tTime\tClass\tPrice\tSeats")
         if len(p.flight) > 0:
-            for pa in p.flight:
-                print(
-                    f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
+            p.viewBookedFlights()
         else:
             print("No booked flights yet!!")
