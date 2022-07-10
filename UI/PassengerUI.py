@@ -1,3 +1,5 @@
+from operator import indexOf
+from os import stat
 from BL.Passenger import Passenger
 from DL.FlightDL import FlightDL
 from DL.PassengerDL import PassengerDL
@@ -88,13 +90,30 @@ class PassengerUI:
 
     @staticmethod
     def bookP(p):
+        listf = []
         print("Main Menu  >   Login    >   Passenger    >   Book from available Flights")
         print("---------------------")
         for i in (FlightDL.flightsList):
             if (i.checkFlight(p.arrCity, p.departCity, p.tripType,  p.departDate)):
+                listf.append(i)
                 print(
                     f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
             else:
                 print("No flights available!!")
         option = int(input("Enter your option"))
+        p.bookFlight(listf[option+1])
+        p.flight[listf[option+1]].price = p.adult*600+p.child*450
         return option
+
+    @staticmethod
+    def invoice(p):
+        print("--------Expenditures---------")
+        print(f"No of Passengers (Adult)(600$) ")
+        print(f"No of Passengers (Child) (450$)")
+        print(f"No of Passengers (Infant)(0$)  ")
+        print("Departure\tArrival\tTrip\tDate\tAdults\tChild\tInfants\tClass ")
+        for pa in p.flight:
+            print(
+                f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
+            p.total += pa.price
+        print(f"Your Total Expenditure :-  {p.total}$")
