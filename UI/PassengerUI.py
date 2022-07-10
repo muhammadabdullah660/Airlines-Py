@@ -104,7 +104,7 @@ class PassengerUI:
         p.bookFlight(listf[option+1])
         p.flight[listf[option+1]].price = p.adult*600+p.child*450
         p.flight[listf[option+1]].seats = p.adult+p.child
-        return option
+        # return option
 
     @staticmethod
     def invoice(p):
@@ -123,3 +123,21 @@ class PassengerUI:
             p.viewBookedFlights()
         else:
             print("No booked flights yet!!")
+
+    @staticmethod
+    def cancelFlight(p):
+        listf = []
+        print("Main Menu  >   Login    >   Passenger    >   Book from available Flights")
+        print("---------------------")
+        for i in (FlightDL.flightsList):
+            # if (i.checkFlight(p.arrCity, p.departCity, p.tripType,  p.departDate)):
+            #     listf.append(i)
+            print(
+                f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
+            # else:
+            #     print("No flights available!!")
+        option = int(input("Enter your option"))
+        p.cancelBookedFlight(listf[option+1])
+        # p.flight[listf[option+1]].price = p.adult*600+p.child*450
+        # p.flight[listf[option+1]].seats = p.adult+p.child
+        # return option

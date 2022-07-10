@@ -22,6 +22,7 @@ class Passenger:
         self.id = id
 
     def cancelBookedFlight(self, myFlight):
+        self.total -= myFlight.price
         self.flight.remove(myFlight)
 
     def calculatePrice(self, item,  myFlight):
