@@ -103,6 +103,7 @@ class PassengerUI:
         option = int(input("Enter your option"))
         p.bookFlight(listf[option+1])
         p.flight[listf[option+1]].price = p.adult*600+p.child*450
+        p.flight[listf[option+1]].seats = p.adult+p.child
         return option
 
     @staticmethod
@@ -111,9 +112,19 @@ class PassengerUI:
         print(f"No of Passengers (Adult)(600$) ")
         print(f"No of Passengers (Child) (450$)")
         print(f"No of Passengers (Infant)(0$)  ")
-        print("Departure\tArrival\tTrip\tDate\tAdults\tChild\tInfants\tClass ")
+        print("Departure\tArrival\tTrip\tDate\tTime\tClass\tPrice\tSeats")
         for pa in p.flight:
             print(
                 f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
             p.total += pa.price
         print(f"Your Total Expenditure :-  {p.total}$")
+
+    @staticmethod
+    def seeBookedFlights(p):
+        print("Departure\tArrival\tTrip\tDate\tTime\tClass\tPrice\tSeats")
+        if len(p.flight) > 0:
+            for pa in p.flight:
+                print(
+                    f"{pa.departCity} \t {pa.arrCity} \t {pa.tripType}  \t {pa.departDate}  \t {pa.departTime}  \t {pa.flightClass}  \t {pa.price}  \t {pa.seats}")
+        else:
+            print("No booked flights yet!!")
