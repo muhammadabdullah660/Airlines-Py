@@ -104,6 +104,8 @@ class PassengerUI:
         p.bookFlight(listf[option+1])
         p.flight[listf[option+1]].price = p.adult*600+p.child*450
         p.flight[listf[option+1]].seats = p.adult+p.child
+        # subtract total seats of flight
+        FlightDL.flightsList[listf[option+1]].seats -= p.adult+p.child
         # return option
 
     @staticmethod

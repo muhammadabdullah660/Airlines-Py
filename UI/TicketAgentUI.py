@@ -2,6 +2,7 @@ from operator import indexOf
 from os import stat
 from BL.Passenger import Passenger
 from DL.FlightDL import FlightDL
+from BL.Flight import Flight
 from DL.PassengerDL import PassengerDL
 
 
@@ -44,3 +45,19 @@ class TicketAgentUI:
             for i in p.flight:
                 print(
                     f"{i.departCity}, {i.arrCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
+            print("---------------------")
+
+    def addFlights():
+        newFlight = Flight()
+        print(
+            "Main Menu  >   Login    >   Admin    >   Add new flights")
+        print("---------------------")
+        newFlight.departCity = input("Departure from :- ")
+        newFlight.arrCity = input("Arrival To :- ")
+        newFlight.tripType = input("Trip Type :- ")
+        newFlight.departDate = input("Depart Date :-")
+        newFlight.departTime = input("Depart Time :- ")
+        newFlight.seats = int(input("No. of seats :- "))
+        newFlight.price = int(input("Ticket Price :-"))
+        newFlight.flightClass = input("Class :- ")
+        return newFlight
