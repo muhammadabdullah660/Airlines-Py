@@ -7,6 +7,10 @@ class Flight:
     seats = 0
     price = 0
     flightClass = ""
+    # To print each object with all properties
+
+    def __str__(self):
+        return f"Flight: {self.departCity} , {self.arrCity} , {self.tripType} , {self.departDate} , {self.departTime} , {self.seats} , {self.flightClass} , {self.price} "
 
     def __init__(self, *args):
         if len(args > 4):

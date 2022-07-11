@@ -47,6 +47,7 @@ class TicketAgentUI:
                     f"{i.departCity}, {i.arrCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
             print("---------------------")
 
+    @staticmethod
     def addFlights():
         newFlight = Flight()
         print(
@@ -61,3 +62,10 @@ class TicketAgentUI:
         newFlight.price = int(input("Ticket Price :-"))
         newFlight.flightClass = input("Class :- ")
         return newFlight
+
+    @staticmethod
+    def viewFlights():
+        print(
+            "Main Menu  >   Login    >   Admin >   View Flights")
+        print("---------------------")
+        print(*FlightDL.flightsList, sep="\n")
