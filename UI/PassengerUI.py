@@ -129,8 +129,8 @@ class PassengerUI:
         listf = []
         print("Main Menu  >   Login    >   Passenger    >   Book from available Flights")
         print("---------------------")
-        for i in (FlightDL.flightsList):
+        for i in (p.flight):
             print(
-                f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
+                f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
         option = int(input("Enter your option"))
         p.cancelBookedFlight(listf[option+1])

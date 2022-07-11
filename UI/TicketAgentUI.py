@@ -32,3 +32,15 @@ class TicketAgentUI:
         for i in (PassengerDL.passengersList):
             print(
                 f"{i.name}, {i.cnic}, {i.passportNo},  {i.contactNum}, {i.eMail}, {i.gender}, {i.total}")
+
+    @staticmethod
+    def viewPassengersFlights():
+        print(
+            "Main Menu  >   Login    >   Admin >   View Passengers travel Data")
+        print("---------------------")
+        print(
+            "Departure \t Arrival \t Trip \t Date \t Time \t Class \t Price \t Seats ")
+        for p in (PassengerDL.passengersList):
+            for i in p.flight:
+                print(
+                    f"{i.departCity}, {i.arrCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
