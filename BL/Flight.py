@@ -13,7 +13,7 @@ class Flight:
         return f"Flight: {self.departCity} , {self.arrCity} , {self.tripType} , {self.departDate} , {self.departTime} , {self.seats} , {self.flightClass} , {self.price} "
 
     def __init__(self, *args):
-        if len(args > 4):
+        if len(args) == 7:
             self.departCity = args[0]
             self.arrCity = args[1]
             self.tripType = args[2]
@@ -22,7 +22,7 @@ class Flight:
             self.seats = args[4]
             self.price = args[5]
             self.flightClass = args[6]
-        elif len(args <= 4):
+        elif len(args) == 4:
             self.departCity = args[0]
             self.arrCity = args[1]
             self.tripType = args[2]

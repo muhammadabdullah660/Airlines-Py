@@ -13,6 +13,6 @@ class TicketAgentDL:
     @staticmethod
     def isValidTicketAgent(userX):
         for item in TicketAgentDL.ticketAgentList:
-            if userX.UserName == item.UserName and userX.UserPassword == item.UserPassword:
+            if userX.userName == item.id.userName and userX.userPassword == item.id.userPassword:
                 return item
         return None

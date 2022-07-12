@@ -13,7 +13,7 @@ class MUser:
             self.userPassword = args[1]
 
     def isAdmin(self):
-        if(self.userRole == "Admin"):
+        if(self.userRole == "Admin" or self.userRole == "admin"):
             return True
         else:
             return False

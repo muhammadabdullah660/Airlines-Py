@@ -54,8 +54,8 @@ def main():
                         elif optionT == 4:
                             TicketAgentUI.viewFlights()
                         elif optionT == 5:
-                            pass
-                            # p.cancelBookedFlight(TicketAgentUI.cancelFlight(p))
+                            PassengerDL.sortPassengersByTotal()
+                            TicketAgentUI.viewSortedPassengersData()
                         elif optionT == 6:
                             TicketAgentUI.viewFlights()
 
@@ -106,7 +106,7 @@ def main():
                 a = TicketAgent(user)
                 TicketAgentDL.addTicketAgentIntoList(a)
 
-            MUserDL.storeDataInFile(user, path)
+            #MUserDL.storeDataInFile(user, path)
 
 
 if __name__ == "__main__":
