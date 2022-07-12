@@ -15,6 +15,7 @@ from DL.PassengerDL import PassengerDL
 from time import sleep
 
 from UI.PassengerUI import PassengerUI
+from UI.TicketAgentUI import TicketAgentUI
 # Defining Main
 
 
@@ -39,6 +40,25 @@ def main():
                 if(user.isAdmin()):
                     # This is Admin menu
                     a = TicketAgentDL.isValidTicketAgent(user)
+                    while optionT < 6:
+                        os.system("cls")
+                        optionT = TicketAgentUI.ticketAgentMenu()
+                        if optionT == 1:
+                            TicketAgentUI.viewPassengersData()
+                        elif optionT == 2:
+                            TicketAgentUI.viewPassengersFlights()
+                        elif optionT == 3:
+                            newFlight = Flight()
+                            newFlight = TicketAgentUI.addFlights()
+                            FlightDL.addFlightIntoList(newFlight)
+                        elif optionT == 4:
+                            TicketAgentUI.viewFlights()
+                        elif optionT == 5:
+                            pass
+                            # p.cancelBookedFlight(TicketAgentUI.cancelFlight(p))
+                        elif optionT == 6:
+                            TicketAgentUI.viewFlights()
+
                     # print("f")
                     # sleep(2)
                 else:

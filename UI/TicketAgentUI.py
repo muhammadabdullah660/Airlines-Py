@@ -17,14 +17,13 @@ class TicketAgentUI:
         print("2- View Passengers travel Data")
         print("3- Add new flights ")
         print("4- View flights ")
-        print("5- Allot Seats  ")
-        print("6- Ordered Passengers  ")
-        print("7- Exit")
+        print("5- Ordered Passengers  ")
+        print("6- Exit")
         option = int(input('Your Option..'))
         return option
 
     @staticmethod
-    def viewPData():
+    def viewPassengersData():
         print(
             "Main Menu  >   Login    >   Admin >   View Passengers Data")
         print("---------------------")
