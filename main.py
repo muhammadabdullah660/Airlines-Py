@@ -46,13 +46,30 @@ def main():
                     # print(len(PassengerDL.passengersList))
                     # sleep(5)
                     p = PassengerDL.isValidPassenger(user)
-                    while optionP < 6:
+                    while optionP < 7:
                         os.system("cls")
                         optionP = PassengerUI.passengerMenu()
                         if optionP == 1:
                             PassengerUI.registrationP(p)
                         elif optionP == 2:
                             PassengerUI.flightP(p)
+                        elif optionP == 3:
+                            newFlight = Flight()
+                            newFlight = PassengerUI.bookP(p)
+                            p.bookFlight(newFlight)
+                            # Calculate total and assign to respective flight price of passenger
+                            p.flight[newFlight].price = p.adult*600+p.child*450
+                            # Calculate total seats and assign to respective flight seats of passenger
+                            p.flight[newFlight].seats = p.adult+p.child
+                            # subtract total seats of flight
+                            FlightDL.flightsList[newFlight].seats -= p.adult+p.child
+                        elif optionP == 4:
+                            PassengerUI.seeBookedFlights(p)
+                        elif optionP == 5:
+                            p.cancelBookedFlight(PassengerUI.cancelFlight(p))
+                        elif optionP == 6:
+                            PassengerUI.viewFlights()
+
             else:
                 print("User doesn't Exist")
                 sleep(5)

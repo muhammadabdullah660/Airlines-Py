@@ -109,14 +109,9 @@ class PassengerUI:
             else:
                 print("No flights available!!")
         option = int(input("Enter your option"))
+        return listf[option+1]
         # Book flight, funtion is in BL
-        p.bookFlight(listf[option+1])
-        # Calculate total and assign to respective flight price of passenger
-        p.flight[listf[option+1]].price = p.adult*600+p.child*450
-        # Calculate total seats and assign to respective flight seats of passenger
-        p.flight[listf[option+1]].seats = p.adult+p.child
-        # subtract total seats of flight
-        FlightDL.flightsList[listf[option+1]].seats -= p.adult+p.child
+
         # return option
 
     @staticmethod
@@ -146,4 +141,4 @@ class PassengerUI:
             print(
                 f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
         option = int(input("Enter your option"))
-        p.cancelBookedFlight(listf[option+1])
+        return listf[option+1]
