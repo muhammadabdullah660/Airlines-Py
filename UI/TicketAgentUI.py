@@ -47,6 +47,17 @@ class TicketAgentUI:
             print("---------------------")
 
     @staticmethod
+    def viewSortedPassengersData():
+        print(
+            "Main Menu  >   Login    >   Admin >   View Ordered Passengers Data")
+        print("---------------------")
+        print(
+            "Name \t CNIC \t Passport \t Phone \t Email \t Gender \t Total")
+        for i in (PassengerDL.sortedPassengersList):
+            print(
+                f"{i.name}, {i.cnic}, {i.passportNo},  {i.contactNum}, {i.eMail}, {i.gender}, {i.total}")
+
+    @staticmethod
     def addFlights():
         newFlight = Flight()
         print(
