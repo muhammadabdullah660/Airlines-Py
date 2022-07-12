@@ -32,6 +32,7 @@ class TicketAgentUI:
         for i in (PassengerDL.passengersList):
             print(
                 f"{i.name}, {i.cnic}, {i.passportNo},  {i.contactNum}, {i.eMail}, {i.gender}, {i.total}")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def viewPassengersFlights():
@@ -45,6 +46,7 @@ class TicketAgentUI:
                 print(
                     f"{i.departCity}, {i.arrCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass}, {i.price} , {i.seats}")
             print("---------------------")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def viewSortedPassengersData():
@@ -56,6 +58,7 @@ class TicketAgentUI:
         for i in (PassengerDL.sortedPassengersList):
             print(
                 f"{i.name}, {i.cnic}, {i.passportNo},  {i.contactNum}, {i.eMail}, {i.gender}, {i.total}")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def addFlights():
@@ -71,6 +74,7 @@ class TicketAgentUI:
         newFlight.seats = int(input("No. of seats :- "))
         newFlight.price = int(input("Ticket Price :-"))
         newFlight.flightClass = input("Class :- ")
+        option = int(input("Enter 1 to exit :- "))
         return newFlight
 
     @staticmethod
@@ -79,3 +83,4 @@ class TicketAgentUI:
             "Main Menu  >   Login    >   Admin >   View Flights")
         print("---------------------")
         print(*FlightDL.flightsList, sep="\n")
+        option = int(input("Enter 1 to exit :- "))

@@ -1,15 +1,8 @@
 from BL.MUser import MUser
+import sys
 
 
 class MUserUI:
-    @staticmethod
-    def menu():
-        print("1. SignIn")
-        print("2. SignUp")
-        print("3. Exit")
-        print("3. Enter Your Option")
-        option = int(input())
-        return option
 
     @staticmethod
     def printList(userList):

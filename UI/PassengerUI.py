@@ -46,6 +46,7 @@ class PassengerUI:
         p.contactNum = input("Enter your Phone Number :- ")
         p.eMail = input("Enter your email :- ")
         p.gender = input("Enter your Gender :- ")
+        option = int(input("Enter 1 to exit :- "))
 
     def flightP(p):
         flag = True
@@ -88,6 +89,7 @@ class PassengerUI:
         print("---------Class---------")
         p.pClass = input("Enter Class :- ")
         p.totalSeats = adult + child+infant
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def viewFlights():
@@ -95,6 +97,7 @@ class PassengerUI:
             "Main Menu  >   Login    >   Passenger >   View Flights")
         print("---------------------")
         print(*FlightDL.flightsList, sep="\n")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def bookP(p):
@@ -105,11 +108,11 @@ class PassengerUI:
             if (i.checkFlight(p.arrCity, p.departCity, p.tripType,  p.departDate)):
                 listf.append(i)
                 print(
-                    f"{i.arrCity}, {i.departCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
+                    f"{i.departCity}, {i.arrCity}, {i.tripType},  {i.departDate}, {i.departTime}, {i.flightClass},{i.price}")
             else:
                 print("No flights available!!")
         option = int(input("Enter your option"))
-        return listf[option+1]
+        return listf[option-1]
         # Book flight, funtion is in BL
 
         # return option
@@ -123,6 +126,7 @@ class PassengerUI:
         print("Departure\tArrival\tTrip\tDate\tTime\tClass\tPrice\tSeats")
         p.viewBookedFlights()
         print(f"Your Total Expenditure :-  {p.total}$")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def seeBookedFlights(p):
@@ -131,6 +135,7 @@ class PassengerUI:
             p.viewBookedFlights()
         else:
             print("No booked flights yet!!")
+        option = int(input("Enter 1 to exit :- "))
 
     @staticmethod
     def cancelFlight(p):

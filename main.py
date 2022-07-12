@@ -1,6 +1,7 @@
 # including Libraries
 
 from UI.MUserUI import MUserUI
+from UI.mainMenuUI import MenuUI
 from collections import UserList
 import os.path
 from tkinter.messagebox import NO
@@ -23,9 +24,9 @@ def main():
     path = "MUser.txt"
     MUserDL.readDataFromFile(path)
     option, optionP, optionT = 0, 0, 0
-    while (option != 3):
+    while (option < 4):
         os.system("cls")
-        option = MUserUI.menu()
+        option = MenuUI.mainMenu()
         if(option == 1):
             # sign in
             os.system("cls")
@@ -44,20 +45,23 @@ def main():
                         os.system("cls")
                         optionT = TicketAgentUI.ticketAgentMenu()
                         if optionT == 1:
+                            os.system("cls")
                             TicketAgentUI.viewPassengersData()
                         elif optionT == 2:
+                            os.system("cls")
                             TicketAgentUI.viewPassengersFlights()
                         elif optionT == 3:
+                            os.system("cls")
                             newFlight = Flight()
                             newFlight = TicketAgentUI.addFlights()
                             FlightDL.addFlightIntoList(newFlight)
                         elif optionT == 4:
+                            os.system("cls")
                             TicketAgentUI.viewFlights()
                         elif optionT == 5:
+                            os.system("cls")
                             PassengerDL.sortPassengersByTotal()
                             TicketAgentUI.viewSortedPassengersData()
-                        elif optionT == 6:
-                            TicketAgentUI.viewFlights()
 
                     # print("f")
                     # sleep(2)
@@ -70,10 +74,13 @@ def main():
                         os.system("cls")
                         optionP = PassengerUI.passengerMenu()
                         if optionP == 1:
+                            os.system("cls")
                             PassengerUI.registrationP(p)
                         elif optionP == 2:
+                            os.system("cls")
                             PassengerUI.flightP(p)
                         elif optionP == 3:
+                            os.system("cls")
                             newFlight = Flight()
                             newFlight = PassengerUI.bookP(p)
                             p.bookFlight(newFlight)
@@ -84,10 +91,13 @@ def main():
                             # subtract total seats of flight
                             FlightDL.flightsList[newFlight].seats -= p.adult+p.child
                         elif optionP == 4:
+                            os.system("cls")
                             PassengerUI.seeBookedFlights(p)
                         elif optionP == 5:
+                            os.system("cls")
                             p.cancelBookedFlight(PassengerUI.cancelFlight(p))
                         elif optionP == 6:
+                            os.system("cls")
                             PassengerUI.viewFlights()
 
             else:
