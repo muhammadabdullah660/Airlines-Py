@@ -1,9 +1,11 @@
 # including Libraries
 
+from operator import indexOf
 from UI.MUserUI import MUserUI
 from UI.mainMenuUI import MenuUI
 from collections import UserList
 import os.path
+import sys
 from tkinter.messagebox import NO
 #from BL.MUser import MUser
 from BL.Passenger import Passenger
@@ -54,7 +56,8 @@ def main():
                             os.system("cls")
                             newFlight = Flight()
                             newFlight = TicketAgentUI.addFlights()
-                            FlightDL.addFlightIntoList(newFlight)
+                            if newFlight != None:
+                                FlightDL.addFlightIntoList(newFlight)
                         elif optionT == 4:
                             os.system("cls")
                             TicketAgentUI.viewFlights()
@@ -83,19 +86,32 @@ def main():
                             os.system("cls")
                             newFlight = Flight()
                             newFlight = PassengerUI.bookP(p)
-                            p.bookFlight(newFlight)
-                            # Calculate total and assign to respective flight price of passenger
-                            p.flight[newFlight].price = p.adult*600+p.child*450
-                            # Calculate total seats and assign to respective flight seats of passenger
-                            p.flight[newFlight].seats = p.adult+p.child
-                            # subtract total seats of flight
-                            FlightDL.flightsList[newFlight].seats -= p.adult+p.child
+                            if newFlight != None:
+                                try:
+                                    p.bookFlight(newFlight)
+                                    # Calculate total and assign to respective flight price of passenger
+                                    x = p.flight.index(newFlight)
+                                    p.flight[x].price = p.adult * \
+                                        600+p.child*450
+                                    # Calculate total seats and assign to respective flight seats of passenger
+                                    p.flight[x].seats = p.adult+p.child
+                                    # subtract total seats of flight
+                                    x = FlightDL.flightsList.index(newFlight)
+                                    FlightDL.flightsList[x].seats -= p.adult+p.child
+                                except:
+                                    print("Oops!", sys.exc_info()
+                                          [0], "occurred.")
+                                    print("Next entry.")
+                                    sleep(5)
                         elif optionP == 4:
                             os.system("cls")
                             PassengerUI.seeBookedFlights(p)
                         elif optionP == 5:
                             os.system("cls")
-                            p.cancelBookedFlight(PassengerUI.cancelFlight(p))
+                            newFlight = Flight()
+                            newFlight = PassengerUI.cancelFlight(p)
+                            if newFlight != None:
+                                p.cancelBookedFlight(newFlight)
                         elif optionP == 6:
                             os.system("cls")
                             PassengerUI.viewFlights()
