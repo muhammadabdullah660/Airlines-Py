@@ -28,10 +28,12 @@ def main():
     option, optionP, optionT = 0, 0, 0
     while (option < 4):
         os.system("cls")
+        MenuUI.header()
         option = MenuUI.mainMenu()
         if(option == 1):
             # sign in
             os.system("cls")
+            MenuUI.header()
             userX = MUserUI.TakeInputWithOutRole()
             user = MUserDL.signIn(userX)
             # print(f"{len(MUserDL.userList)}")
@@ -44,25 +46,31 @@ def main():
                     # This is Admin menu
                     a = TicketAgentDL.isValidTicketAgent(user)
                     while optionT < 6:
+                        MenuUI.header()
                         os.system("cls")
                         optionT = TicketAgentUI.ticketAgentMenu()
                         if optionT == 1:
+                            MenuUI.header()
                             os.system("cls")
                             TicketAgentUI.viewPassengersData()
                         elif optionT == 2:
+                            MenuUI.header()
                             os.system("cls")
                             TicketAgentUI.viewPassengersFlights()
                         elif optionT == 3:
                             os.system("cls")
+                            MenuUI.header()
                             newFlight = Flight()
                             newFlight = TicketAgentUI.addFlights()
                             if newFlight != None:
                                 FlightDL.addFlightIntoList(newFlight)
                         elif optionT == 4:
                             os.system("cls")
+                            MenuUI.header()
                             TicketAgentUI.viewFlights()
                         elif optionT == 5:
                             os.system("cls")
+                            MenuUI.header()
                             PassengerDL.sortPassengersByTotal()
                             TicketAgentUI.viewSortedPassengersData()
 
@@ -75,15 +83,19 @@ def main():
                     p = PassengerDL.isValidPassenger(user)
                     while optionP < 7:
                         os.system("cls")
+                        MenuUI.header()
                         optionP = PassengerUI.passengerMenu()
                         if optionP == 1:
                             os.system("cls")
+                            MenuUI.header()
                             PassengerUI.registrationP(p)
                         elif optionP == 2:
                             os.system("cls")
+                            MenuUI.header()
                             PassengerUI.flightP(p)
                         elif optionP == 3:
                             os.system("cls")
+                            MenuUI.header()
                             newFlight = Flight()
                             newFlight = PassengerUI.bookP(p)
                             if newFlight != None:
@@ -105,15 +117,18 @@ def main():
                                     sleep(5)
                         elif optionP == 4:
                             os.system("cls")
+                            MenuUI.header()
                             PassengerUI.seeBookedFlights(p)
                         elif optionP == 5:
                             os.system("cls")
+                            MenuUI.header()
                             newFlight = Flight()
                             newFlight = PassengerUI.cancelFlight(p)
                             if newFlight != None:
                                 p.cancelBookedFlight(newFlight)
                         elif optionP == 6:
                             os.system("cls")
+                            MenuUI.header()
                             PassengerUI.viewFlights()
 
             else:
@@ -123,6 +138,7 @@ def main():
         elif (option == 2):
             # signUp
             os.system("cls")
+            MenuUI.header()
             user = MUserUI.TakeInputFromConsole()
             MUserDL.addUserInList(user)
             if (not user.isAdmin()):

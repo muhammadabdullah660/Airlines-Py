@@ -6,7 +6,7 @@ from time import sleep
 class MenuUI:
     @staticmethod
     def header():
-        os.system('clear')
+        # os.system('clear')
         print(
             '------------------------------------------------------------------------------------------------------------- ')
         print(
